@@ -1,0 +1,12 @@
+## Trusted sources that must never be banned (e.g. the ops jump host whose
+## automation runs periodic auth checks).
+##
+## Deploy as /etc/fail2ban/jail.d/00-trusted-sources.local and replace the
+## placeholder address below with the real jump host IP/CIDR (or DNS name).
+## Entries here are checked before any failure is counted, so maxretry /
+## findtime thresholds stay unchanged for everything else.
+
+[DEFAULT]
+# Loopback defaults plus trusted ops sources. Space/comma separated; each
+# entry may be an IP, a CIDR mask, or a resolvable DNS host name.
+ignoreip = 127.0.0.1/8 ::1 192.0.2.10/32
